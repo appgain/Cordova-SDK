@@ -12,16 +12,6 @@ AppgainPlugin.prototype.initSDK = function (appId, apiKey, autoConfigure) {
   });
 };
 
-// Installation constructor that binds AppgainPlugin to window
-AppgainPlugin.install = function () {
-  if (!window.plugins) {
-    window.plugins = {};
-  }
-  window.plugins.AppgainPlugin = new AppgainPlugin();
-  return window.plugins.AppgainPlugin;
-};
-cordova.addConstructor(AppgainPlugin.install);
-
 // let initSDK = (appId, apiKey, autoConfigure) => {
 //   return new Promise((resolve, reject) => {
 //     AppgainSDK.initAppgainSDK(
@@ -187,3 +177,13 @@ AppgainPlugin.prototype.updateUserData = function (userData) {
     cordova.exec(resolve, reject, "AppgainPlugin", "updateUserData", [options]);
   });
 };
+
+// Installation constructor that binds AppgainPlugin to window
+AppgainPlugin.install = function () {
+  if (!window.plugins) {
+    window.plugins = {};
+  }
+  window.plugins.AppgainPlugin = new AppgainPlugin();
+  return window.plugins.AppgainPlugin;
+};
+cordova.addConstructor(AppgainPlugin.install);
