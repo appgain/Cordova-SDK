@@ -300,7 +300,7 @@ public class AppgainPlugin extends CordovaPlugin {
                 @Override
                 public void onSuccess(Void data) {
                     isInitialized = true;
-                    callbackContext.success(gson.toJson(""));
+                    callbackContext.success("{}");
                 }
 
                 @Override
