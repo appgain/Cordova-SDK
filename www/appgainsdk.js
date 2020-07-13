@@ -2,13 +2,13 @@ function AppgainPlugin() {}
 
 // The function that passes work along to native shells
 // Message is a string, duration may be 'long' or 'short'
-AppgainPlugin.prototype.initUser = function (appId, apiKey, autoConfigure) {
+AppgainPlugin.prototype.initSDK = function (appId, apiKey, autoConfigure) {
   var options = {};
   options.appId = appId;
   options.apiKey = apiKey;
   options.autoConfigure = autoConfigure;
   return new Promise((resolve, reject) => {
-    cordova.exec(resolve, reject, "AppgainPlugin", "initUser", [options]);
+    cordova.exec(resolve, reject, "AppgainPlugin", "initSDK", [options]);
   });
 };
 

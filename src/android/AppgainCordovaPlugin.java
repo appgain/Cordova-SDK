@@ -128,19 +128,21 @@ public class AppgainCordovaPlugin extends CordovaPlugin {
         return bundle;
     }
 
-    public static Map<String, String> jsonTotoMap(JSONObject jsonobj) {
+    public static Map<String, String> jsonTotoMap(@Nullable JSONObject jsonobj) {
         Map<String, String> map = new HashMap<String, String>();
-        Iterator<String> keys = jsonobj.keys();
-        while(keys.hasNext()) {
-            String key = keys.next();
-            Object value = jsonobj.opt(key);
-            if(value != null){
-                if (value instanceof JSONArray) {
-                    value = jsonToList((JSONArray) value);
-                } else if (value instanceof JSONObject) {
-                    value = jsonTotoMap((JSONObject) value);
+        if(jsonobj != null){
+            Iterator<String> keys = jsonobj.keys();
+            while(keys.hasNext()) {
+                String key = keys.next();
+                Object value = jsonobj.opt(key);
+                if(value != null){
+                    if (value instanceof JSONArray) {
+                        value = jsonToList((JSONArray) value);
+                    } else if (value instanceof JSONObject) {
+                        value = jsonTotoMap((JSONObject) value);
+                    }
+                    map.put(key, value.toString());
                 }
-                map.put(key, value.toString());
             }
         }
         return map;
@@ -148,15 +150,17 @@ public class AppgainCordovaPlugin extends CordovaPlugin {
 
     public static List<String> jsonToList(JSONArray array) {
         List<String> list = new ArrayList<String>();
-        for (int i = 0; i < array.length(); i++) {
-            Object value = array.opt(i);
-            if(value != null){
-                if (value instanceof JSONArray) {
-                    value = jsonToList((JSONArray) value);
-                } else if (value instanceof JSONObject) {
-                    value = jsonTotoMap((JSONObject) value);
+        if(array != null){
+            for (int i = 0; i < array.length(); i++) {
+                Object value = array.opt(i);
+                if(value != null){
+                    if (value instanceof JSONArray) {
+                        value = jsonToList((JSONArray) value);
+                    } else if (value instanceof JSONObject) {
+                        value = jsonTotoMap((JSONObject) value);
+                    }
+                    list.add(value.toString());
                 }
-                list.add(value.toString());
             }
         }
         return list;
@@ -189,7 +193,7 @@ public class AppgainCordovaPlugin extends CordovaPlugin {
         try {
             JSONObject options = args.getJSONObject(0);
             JSONObject userData = options.optJSONObject("userData");
-            Appgain.updateUserData(userData, new AppgainDataCallback<Void>() {
+            Appgain.updateUserData(jsonTotoMap(userData), new AppgainDataCallback<Void>() {
                 @Override
                 public void onSuccess(Void data) {
                     callbackContext.success(gson.toJson(""));
@@ -234,7 +238,7 @@ public class AppgainCordovaPlugin extends CordovaPlugin {
             String name = options.optString("name");
             String currency = options.optString("currency");
             double amount = options.optDouble("amount");
-            Appgain.logPurchase(name, amount, currency, new AppgainDataCallback<Void>() {
+            Appgain.logPurchase(name, (float) amount, currency, new AppgainDataCallback<Void>() {
                 @Override
                 public void onSuccess(Void data) {
                     callbackContext.success(gson.toJson(""));
@@ -314,7 +318,7 @@ public class AppgainCordovaPlugin extends CordovaPlugin {
             JSONObject options = args.getJSONObject(0);
             String triggerPointName = options.optString("triggerPointName");
             JSONObject payload = options.optJSONObject("payload");
-            Appgain.fireAutomator(triggerPointName, payload, new AppgainDataCallback<Void>() {
+            Appgain.fireAutomator(triggerPointName, jsonTotoMap(payload), new AppgainDataCallback<Void>() {
                 @Override
                 public void onSuccess(Void data) {
                     callbackContext.success(gson.toJson(""));
