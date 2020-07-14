@@ -2,20 +2,16 @@ package com.appgain.cordova.plugin;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import androidx.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -31,13 +27,13 @@ import io.appgain.sdk.model.deferredlinking.DeferredDeepLinkingResponse;
 
 public class AppgainPlugin extends CordovaPlugin {
 
-    private static final String DURATION_LONG = "long";
     private static Gson gson = new GsonBuilder().create();
     private boolean isInitialized = false;
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) {
-        // Verify that the user sent a 'show' action
+        Log.e("execute", "action = " + action);
+        Appgain.enableLog();
         switch(action) {
             case "initSDK":
                 initSDK(args, callbackContext);
@@ -70,6 +66,7 @@ public class AppgainPlugin extends CordovaPlugin {
                 updateUserData(args, callbackContext);
                 break;
             default:
+                Log.e("execute", "action is not implemented");
                 Exception exception = new RuntimeException(action + "() is not implemented");
                 callbackContext.error(gson.toJson(exception));
                 return false;
@@ -290,25 +287,33 @@ public class AppgainPlugin extends CordovaPlugin {
 
     private void initSDK(JSONArray args, CallbackContext callbackContext) {
         try {
+            Log.e("initSDK", "start");
             JSONObject options = args.getJSONObject(0);
             String appId = options.optString("appId");
             String apiKey = options.optString("apiKey");
             boolean config = options.optBoolean("autoConfigure");
             Context context = this.cordova.getActivity().getApplicationContext();
+            Log.e("initSDK", "appId: " + appId);
+            Log.e("initSDK", "apiKey: " + apiKey);
+            Log.e("initSDK", "config: " + config);
+            Log.e("initSDK", "context: " + context);
 
             Appgain.initialize(context, appId, apiKey, config, new AppgainDataCallback<Void>() {
                 @Override
                 public void onSuccess(Void data) {
+                    Log.e("initSDK", "onSuccess");
                     isInitialized = true;
-                    callbackContext.success("{}");
+                    callbackContext.success(gson.toJson(""));
                 }
 
                 @Override
                 public void onFailure(BaseResponse failure) {
+                    Log.e("initSDK", "onFailure");
                     callbackContext.error(gson.toJson(failure));
                 }
             });
         } catch (Exception e) {
+            Log.e("initSDK", e.getMessage());
             callbackContext.error(gson.toJson(e));
         }
     }
