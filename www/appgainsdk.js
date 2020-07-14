@@ -1,4 +1,4 @@
-AppgainPlugin = function () {};
+function AppgainPlugin() {}
 
 // The function that passes work along to native shells
 // Message is a string, duration may be 'long' or 'short'
@@ -178,13 +178,14 @@ AppgainPlugin.prototype.updateUserData = function (userData) {
   });
 };
 
-if (!window.plugins) {
-  window.plugins = {};
-}
-if (!window.plugins.AppgainPlugin) {
+// Installation constructor that binds AppgainPlugin to window
+AppgainPlugin.install = function () {
+  if (!window.plugins) {
+    window.plugins = {};
+  }
   window.plugins.AppgainPlugin = new AppgainPlugin();
-}
+  return window.plugins.AppgainPlugin;
+};
+cordova.addConstructor(AppgainPlugin.install);
 
-if (module.exports) {
-  module.exports = AppgainPlugin;
-}
+export { AppgainPlugin };
