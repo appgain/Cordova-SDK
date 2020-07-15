@@ -187,5 +187,3 @@ AppgainPlugin.install = function () {
   return window.plugins.AppgainPlugin;
 };
 cordova.addConstructor(AppgainPlugin.install);
-
-export { AppgainPlugin };

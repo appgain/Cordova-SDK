@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
-    xmlns:android="http://schemas.android.com/apk/res/android" id="appgain-plugin" version="0.0.1">
+    xmlns:android="http://schemas.android.com/apk/res/android" id="AppgainPlugin" version="0.0.1">
     <name>AppgainPlugin</name>
 
     <description>An Android Cordova plugin that allows users to display simple Toast messages at the bottom of the screen.</description>
@@ -15,7 +15,7 @@
     </engines>
 
     <js-module src="www/AppgainPlugin.js" name="AppgainPlugin">
-        <clobbers target="window.plugins.AppgainPlugin" />
+        <clobbers target="AppgainPlugin" />
     </js-module>
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
