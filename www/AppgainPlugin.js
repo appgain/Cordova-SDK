@@ -136,7 +136,7 @@ AppgainPlugin.prototype.logEvent = function (action, type, extras) {
 //   });
 // };
 
-AppgainPlugin.prototype.getUserId = function (action, type, extras) {
+AppgainPlugin.prototype.getUserId = function () {
   var options = {};
   return new Promise((resolve, reject) => {
     cordova.exec(resolve, reject, "AppgainPlugin", "getUserId", [options]);
