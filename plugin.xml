@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android" id="AppgainPlugin" version="0.0.1">
     <name>AppgainPlugin</name>
 
@@ -18,6 +18,7 @@
         <clobbers target="AppgainPlugin" />
     </js-module>
     <platform name="android">
+        <framework src="android/dependencies.gradle" custom="true" type="gradleReference"/>
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="AppgainPlugin">
                 <param name="android-package" value="com.appgain.cordova.plugin.AppgainPlugin"/>
