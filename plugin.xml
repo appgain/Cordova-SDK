@@ -18,7 +18,7 @@
         <clobbers target="AppgainPlugin" />
     </js-module>
     <platform name="android">
-        <framework src="android/dependencies.gradle" custom="true" type="gradleReference"/>
+        <framework src="/src/android/dependencies.gradle" custom="true" type="gradleReference"/>
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="AppgainPlugin">
                 <param name="android-package" value="com.appgain.cordova.plugin.AppgainPlugin"/>
