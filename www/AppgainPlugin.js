@@ -114,10 +114,10 @@ AppgainPlugin.prototype.addNotificationChannel = function (type, target) {
 //   });
 // };
 
-AppgainPlugin.prototype.logEvent = function (action, type, extras) {
+AppgainPlugin.prototype.logEvent = function (event, action, extras) {
   var options = {};
   options.action = action;
-  options.type = type;
+  options.event = event;
   options.extras = extras;
   return new Promise((resolve, reject) => {
     cordova.exec(resolve, reject, "AppgainPlugin", "logEvent", [options]);
