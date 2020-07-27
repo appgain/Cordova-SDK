@@ -22,6 +22,10 @@
     {
       "name": "cordova",
       "version": ">=3.0.0"
+    },
+    {
+      "name": "cordova-plugin-firebase",
+      "version": "^2.0.5"
     }
   ],
   "author": "Mohamed Fouad <m.fouad2912@gmail.com>",
