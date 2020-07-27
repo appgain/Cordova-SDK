@@ -24,7 +24,7 @@
                 <param name="android-package" value="com.appgain.cordova.plugin.AppgainPlugin"/>
             </feature>
         </config-file>
-        <config-file target="AndroidManifest.xml" parent="/manifest">
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <uses-permission android:name="android.permission.INTERNET" />
             <receiver android:name="com.appgain.cordova.plugin.PushReceiver" android:exported="false">
                 <intent-filter>
