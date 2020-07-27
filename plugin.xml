@@ -24,7 +24,25 @@
                 <param name="android-package" value="com.appgain.cordova.plugin.AppgainPlugin"/>
             </feature>
         </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <receiver android:name="com.appgain.cordova.plugin.PushReceiver" android:exported="false">
+                <intent-filter>
+                    <action android:name="com.parse.push.intent.RECEIVE" />
+                    <action android:name="com.parse.push.intent.DELETE" />
+                    <action android:name="com.parse.push.intent.OPEN" />
+                </intent-filter>
+            </receiver>
+            <service android:name="io.appgain.sdk.controller.AppgainMessagingService">
+                <intent-filter>
+                    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                </intent-filter>
+            </service>
+        </config-file>
 
         <source-file src="src/android/AppgainPlugin.java" target-dir="src/com/appgain/cordova/plugin" />
     </platform>
+
+
+
 </plugin>
