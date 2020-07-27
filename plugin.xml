@@ -44,6 +44,7 @@
         </config-file>
 
         <source-file src="src/android/AppgainPlugin.java" target-dir="src/com/appgain/cordova/plugin" />
+        <source-file src="src/android/PushReceiver.java" target-dir="src/com/appgain/cordova/plugin" />
     </platform>
 
 
