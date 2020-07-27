@@ -2,7 +2,6 @@ package com.appgain.cordova.plugin;
 
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -28,6 +27,5 @@ public class PushReceiver extends AppgainPushReceiver {
     @Override
     protected void onSilentPushReceive(@NonNull String operation) {
         super.onSilentPushReceive(operation);
-        Toast.makeText(AppController.getInstance(), "Silent push operation == " + operation, Toast.LENGTH_LONG).show();
     }
 }
