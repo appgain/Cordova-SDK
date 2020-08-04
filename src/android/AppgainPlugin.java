@@ -6,24 +6,20 @@ import android.util.Log;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
-import androidx.annotation.Nullable;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
+import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import io.appgain.sdk.controller.Appgain;
-import io.appgain.sdk.interfaces.AppgainDataCallback;
-import io.appgain.sdk.model.BaseResponse;
-import io.appgain.sdk.model.deferredlinking.DeferredDeepLinkingResponse;
+import io.appgain.sdk.appcompat.controller.Appgain;
+import io.appgain.sdk.appcompat.interfaces.AppgainDataCallback;
+import io.appgain.sdk.appcompat.model.BaseResponse;
+import io.appgain.sdk.appcompat.model.deferredlinking.DeferredDeepLinkingResponse;
 
 public class AppgainPlugin extends CordovaPlugin {
 
