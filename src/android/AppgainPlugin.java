@@ -8,7 +8,7 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.jetbrains.annotations.Nullable;
+import android.support.annotation.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
