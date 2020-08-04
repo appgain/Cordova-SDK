@@ -2,11 +2,11 @@ package com.appgain.cordova.plugin;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 
-import androidx.annotation.NonNull;
+import io.appgain.sdk.appcompat.controller.AppgainPushReceiver;
+import io.appgain.sdk.appcompat.model.push.ReceiveStatus;
 
-import io.appgain.sdk.controller.AppgainPushReceiver;
-import io.appgain.sdk.model.push.ReceiveStatus;
 
 /**
  * Created by developers@appgain.io on 3/15/2018.
