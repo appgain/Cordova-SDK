@@ -32,7 +32,8 @@
                     <action android:name="com.parse.push.intent.OPEN" />
                 </intent-filter>
             </receiver>
-            <service android:name="io.appgain.sdk.controller.AppgainMessagingService">
+            <service
+                android:name="io.appgain.sdk.appcompat.controller.AppgainMessagingService">
                 <intent-filter>
                     <action android:name="com.google.firebase.MESSAGING_EVENT"/>
                 </intent-filter>
