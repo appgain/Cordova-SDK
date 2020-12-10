@@ -19,7 +19,7 @@
                 </feature>
              </config-file>
             <source-file src="src/ios/AppgainPlugin.m" />
-                <podspec src="Appgain"  spec="~> 3.0.1" />
+                <framework src="Appgain" type="podspec" spec="~> 3.0.1" />
 
          </platform>
 </plugin>
