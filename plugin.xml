@@ -27,5 +27,4 @@
              </config-file>
             <source-file src="src/ios/AppgainPlugin.swift" />
          </platform>
-   <framework src="Appgain" type="podspec" spec="~> 3.0.1" />
 </plugin>
