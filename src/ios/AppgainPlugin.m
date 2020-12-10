@@ -15,7 +15,7 @@
 - (void)logEvent:(CDVInvokedUrlCommand*)command;
 @end
 
-@implementation AppgainPlugins
+@implementation AppgainPlugin
 //CDVPluginResult* pluginResult ;
 
 - (void)initSDK:(CDVInvokedUrlCommand*)command
