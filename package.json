@@ -19,12 +19,15 @@
     "SDK",
     "sdk"
   ],
-  "engines": [
-    {
-      "name": "cordova",
-      "version": ">=3.0.0"
+  "engines": {
+    "cordovaDependencies": {
+        "1.0.0": { 
+          "cordova-ios": ">=4.4.0",
+          "cordova-android": ">6.3.0",
+          "cordova": ">=7.0.0"
+        }
     }
-  ],
+  },
   "author": "Mohamed Fouad <m.fouad2912@gmail.com>",
   "license": "MIT",
   "bugs": {
