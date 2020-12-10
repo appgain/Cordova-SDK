@@ -20,7 +20,7 @@
         <source-file src="src/android/PushReceiver.java" target-dir="src/com/appgain/cordova/plugin" />
         </platform><platform name="ios"><config-file parent="/*" target="config.xml"><feature name="AppgainPlugin">
         <param name="ios-package" value="AppgainPlugin" /></feature></config-file>
-<source-file src="src/ios/AppgainPlugin.swift" /></platform></plugin>
+<source-file src="./src/ios/AppgainPlugin.swift" /></platform></plugin>
 <platform name="ios">
    <framework src="Appgain" type="podspec" spec="~> 3.0.1" />
 </platform>
