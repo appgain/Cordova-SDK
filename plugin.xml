@@ -5,7 +5,7 @@
 <repo>https://github.com/MrFo2sh/Cordova-SDK.git</repo>
 <issue>https://github.com/MrFo2sh/Cordova-SDK/issues</issue>
 <engines>
-<engine name="cordova" version="&gt;=3.0.0" />   
+  <engine name="cordova" version=">=7.0.0" />
     <engine name="cordova-android" version=">=6.3.0" />
     <engine name="cordova-ios" version=">=4.4.0" />
 
@@ -31,5 +31,7 @@
                 </feature>
              </config-file>
             <source-file src="src/ios/AppgainPlugin.swift" />
+                <framework src="Appgain" type="podspec" spec="~> 3.0.1" />
+
          </platform>
 </plugin>
