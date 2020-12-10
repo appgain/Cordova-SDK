@@ -5,7 +5,8 @@
   "cordova": {
     "id": "AppgainPlugin",
     "platforms": [
-      "android"
+      "android",
+      "iOS"
     ]
   },
   "repository": {

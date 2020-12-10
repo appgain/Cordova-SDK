@@ -6,21 +6,26 @@
 <issue>https://github.com/MrFo2sh/Cordova-SDK/issues</issue>
 <engines><engine name="cordova" version="&gt;=3.0.0" /></engines>
 <js-module name="AppgainPlugin" src="www/AppgainPlugin.js"><clobbers target="AppgainPlugin" /></js-module>
-<platform name="android"><framework custom="true" src="./src/android/dependencies.gradle" type="gradleReference" /><
-    config-file parent="/*" target="res/xml/config.xml">
+<platform name="android"><framework custom="true" src="./src/android/dependencies.gradle" type="gradleReference" />
+<config-file parent="/*" target="res/xml/config.xml">
     <feature name="AppgainPlugin"><param name="android-package" value="com.appgain.cordova.plugin.AppgainPlugin" /></feature>
     </config-file><config-file parent="/manifest/application" target="AndroidManifest.xml">
     <receiver android:exported="false" android:name="com.appgain.cordova.plugin.PushReceiver"><intent-filter>
-    <action android:name="com.parse.push.intent.RECEIVE" /><action android:name="com.parse.push.intent.DELETE" /><
-        action android:name="com.parse.push.intent.OPEN" /></intent-filter></receiver>
+    <action android:name="com.parse.push.intent.RECEIVE" /><action android:name="com.parse.push.intent.DELETE" />
+    <action android:name="com.parse.push.intent.OPEN" /></intent-filter></receiver>
         <service android:name="io.appgain.sdk.appcompat.controller.AppgainMessagingService"><intent-filter>
         <action android:name="com.google.firebase.MESSAGING_EVENT" /></intent-filter></service></config-file>
         <config-file parent="/manifest" target="AndroidManifest.xml"><uses-permission android:name="android.permission.INTERNET" />
         </config-file><source-file src="src/android/AppgainPlugin.java" target-dir="src/com/appgain/cordova/plugin" />
         <source-file src="src/android/PushReceiver.java" target-dir="src/com/appgain/cordova/plugin" />
-        </platform><platform name="ios"><config-file parent="/*" target="config.xml"><feature name="AppgainPlugin">
-        <param name="ios-package" value="AppgainPlugin" /></feature></config-file>
-<source-file src="./src/ios/AppgainPlugin.swift" /></platform></plugin>
-<platform name="ios">
+        </platform>
+        <platform name="ios">
+            <config-file parent="/*" target="config.xml">
+                <feature name="AppgainPlugin">
+                    <param name="ios-package" value="AppgainPlugin" />
+                </feature>
+             </config-file>
+            <source-file src="src/ios/AppgainPlugin.swift" />
+         </platform>
    <framework src="Appgain" type="podspec" spec="~> 3.0.1" />
-</platform>
+</plugin>
