@@ -31,10 +31,14 @@
             NSString* info = [NSString stringWithFormat:@"%@", result];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: info];
         }
-        else{
+        else if (error != nil){
             // Call failure callback
-            NSDictionary *failure = @{@"error" : error.localizedDescription};
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.localizedDescription];
+
+        }
+        else if (response != nil){
+            // Call failure callback
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:response.debugDescription];
 
         }
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -64,10 +68,14 @@
             NSString* info = [NSString stringWithFormat:@"%@", result];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: info];
         }
-        else{
+        else if (error != nil){
             // Call failure callback
-            NSDictionary *failure = @{@"error" : error.localizedDescription};
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.localizedDescription];
+
+        }
+        else if (response != nil){
+            // Call failure callback
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:response.debugDescription];
 
         }
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -88,10 +96,14 @@
             NSString* info = [NSString stringWithFormat:@"%@", result];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: info];
         }
-        else{
+        else if (error != nil){
             // Call failure callback
-            NSDictionary *failure = @{@"error" : error.localizedDescription};
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.localizedDescription];
+
+        }
+        else if (response != nil){
+            // Call failure callback
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:response.debugDescription];
 
         }
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -106,14 +118,18 @@
     NSString* userId = [args objectForKey:@"id"];
     [Appgain updateUserId:userId whenFinish:^(NSURLResponse *response, NSMutableDictionary *result, NSError *error) {
        
-    if(result != nil){
+        if(result != nil){
             NSString* info = [NSString stringWithFormat:@"%@", result];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: info];
         }
-        else{
+        else if (error != nil){
             // Call failure callback
-            NSDictionary *failure = @{@"error" : error.localizedDescription};
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.localizedDescription];
+
+        }
+        else if (response != nil){
+            // Call failure callback
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:response.debugDescription];
 
         }
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -132,14 +148,18 @@
 
     [Appgain logPurchase:name withAmount:amount forCurrency:currency whenFinish:^(NSURLResponse *response, NSMutableDictionary *result, NSError *error) {
  
-    if(result != nil){
+        if(result != nil){
             NSString* info = [NSString stringWithFormat:@"%@", result];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: info];
         }
-        else{
+        else if (error != nil){
             // Call failure callback
-            NSDictionary *failure = @{@"error" : error.localizedDescription};
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.localizedDescription];
+
+        }
+        else if (response != nil){
+            // Call failure callback
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:response.debugDescription];
 
         }
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -157,14 +177,18 @@
 
     [Appgain createNotificationChannel:type withData:target whenFinish:^(NSURLResponse *response, NSMutableDictionary *result, NSError *error) {
     
-    if(result != nil){
+        if(result != nil){
             NSString* info = [NSString stringWithFormat:@"%@", result];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: info];
         }
-        else{
+        else if (error != nil){
             // Call failure callback
-            NSDictionary *failure = @{@"error" : error.localizedDescription};
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.localizedDescription];
+
+        }
+        else if (response != nil){
+            // Call failure callback
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:response.debugDescription];
 
         }
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -180,14 +204,18 @@
 
     [Appgain updateUserData:data whenFinish:^(NSURLResponse *response, NSMutableDictionary *result, NSError *error) {
    
-    if(result != nil){
+        if(result != nil){
             NSString* info = [NSString stringWithFormat:@"%@", result];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: info];
         }
-        else{
+        else if (error != nil){
             // Call failure callback
-            NSDictionary *failure = @{@"error" : error.localizedDescription};
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.localizedDescription];
+
+        }
+        else if (response != nil){
+            // Call failure callback
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:response.debugDescription];
 
         }
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -205,14 +233,18 @@
 
     [Appgain logEvent:event andAction:action extras:extras whenFinish:^(NSURLResponse *response, NSMutableDictionary *result, NSError *error) {
     
-    if(result != nil){
+        if(result != nil){
             NSString* info = [NSString stringWithFormat:@"%@", result];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: info];
         }
-        else{
+        else if (error != nil){
             // Call failure callback
-            NSDictionary *failure = @{@"error" : error.localizedDescription};
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.localizedDescription];
+
+        }
+        else if (response != nil){
+            // Call failure callback
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:response.debugDescription];
 
         }
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
