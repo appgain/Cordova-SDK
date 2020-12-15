@@ -37,9 +37,9 @@
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
 
         }
-        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
     }];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 
@@ -51,9 +51,15 @@
 }
 - (void)matchLink:(CDVInvokedUrlCommand*)command
 {
+    // Check command.arguments here.
+          
+        
+   
+    
+    
     __block CDVPluginResult * pluginResult  = nil;
     [Appgain matchLink:^(NSURLResponse *response, NSMutableDictionary *result, NSError *error) {
-    
+
         if(result != nil){
             NSString* info = [NSString stringWithFormat:@"%@", result];
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: info];
@@ -64,9 +70,11 @@
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
 
         }
-        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
     }];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    
+    
 }
 
 - (void)fireAutomator:(CDVInvokedUrlCommand*)command
@@ -86,9 +94,9 @@
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
 
         }
-        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
     }];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)setUserId:(CDVInvokedUrlCommand*)command
@@ -108,9 +116,9 @@
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
 
         }
-        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
     }];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)addPurchase:(CDVInvokedUrlCommand*)command
@@ -134,9 +142,9 @@
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
 
         }
-        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
     }];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)addNotificationChannel:(CDVInvokedUrlCommand*)command
@@ -159,9 +167,9 @@
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
 
         }
-        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
     }];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)updateUserData:(CDVInvokedUrlCommand*)command
@@ -182,9 +190,9 @@
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
 
         }
-        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
     }];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)logEvent:(CDVInvokedUrlCommand*)command
@@ -207,9 +215,9 @@
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:failure];
 
         }
-        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
     }];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 @end
 
