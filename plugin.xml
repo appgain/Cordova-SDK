@@ -32,7 +32,7 @@
                 </feature>
              </config-file>
             <source-file src="src/ios/AppgainPlugin.m" />
-                <framework src="Appgain" type="podspec" spec="~> 3.0.1" />
+                <framework src="Appgain" type="podspec"  />
 
          </platform>
 </plugin>
