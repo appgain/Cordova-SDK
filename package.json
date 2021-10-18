@@ -1,0 +1,37 @@
+{
+  "name": "appgain-cordova-plugin",
+  "version": "0.0.1",
+  "description": "Appgain Cordova SDK",
+  "cordova": {
+    "id": "AppgainPlugin",
+    "platforms": [
+      "android",
+      "iOS"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrFo2sh/Cordova-SDK.git"
+  },
+  "keywords": [
+    "Appgain",
+    "Cordova",
+    "SDK",
+    "sdk"
+  ],
+  "engines": {
+    "cordovaDependencies": {
+        "1.0.0": { 
+          "cordova-ios": ">=4.4.0",
+          "cordova-android": ">6.3.0",
+          "cordova": ">=7.0.0"
+        }
+    }
+  },
+  "author": "Mohamed Fouad <m.fouad2912@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MrFo2sh/Cordova-SDK/issues"
+  },
+  "homepage": "https://github.com/MrFo2sh/Cordova-SDK"
+}

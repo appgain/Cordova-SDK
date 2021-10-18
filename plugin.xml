@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="AppgainPlugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>AppgainPlugin</name>
+<description>An Android Cordova plugin that allows users to display simple Toast messages at the bottom of the screen.</description>
+<license>MIT</license><keywords>cordova,android,toast,message,alert</keywords>
+<repo>https://github.com/MrFo2sh/Cordova-SDK.git</repo>
+<issue>https://github.com/MrFo2sh/Cordova-SDK/issues</issue>
+<engines>
+  <engine name="cordova" version=">=7.0.0" />
+    <engine name="cordova-android" version=">=6.3.0" />
+    <engine name="cordova-ios" version=">=4.4.0" />
+
+</engines>
+<js-module name="AppgainPlugin" src="www/AppgainPlugin.js"><clobbers target="AppgainPlugin" /></js-module>
+<platform name="android"><framework custom="true" src="./src/android/dependencies.gradle" type="gradleReference" />
+<config-file parent="/*" target="res/xml/config.xml">
+    <feature name="AppgainPlugin"><param name="android-package" value="com.appgain.cordova.plugin.AppgainPlugin" /></feature>
+    </config-file><config-file parent="/manifest/application" target="AndroidManifest.xml">
+    <receiver android:exported="false" android:name="com.appgain.cordova.plugin.PushReceiver"><intent-filter>
+    <action android:name="com.parse.push.intent.RECEIVE" /><action android:name="com.parse.push.intent.DELETE" />
+    <action android:name="com.parse.push.intent.OPEN" /></intent-filter></receiver>
+        <service android:name="io.appgain.sdk.appcompat.controller.AppgainMessagingService"><intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT" /></intent-filter></service></config-file>
+        <config-file parent="/manifest" target="AndroidManifest.xml"><uses-permission android:name="android.permission.INTERNET" />
+        </config-file><source-file src="src/android/AppgainPlugin.java" target-dir="src/com/appgain/cordova/plugin" />
+        <source-file src="src/android/PushReceiver.java" target-dir="src/com/appgain/cordova/plugin" />
+        </platform>
+
+        <platform name="ios">
+            <config-file parent="/*" target="config.xml">
+                <feature name="AppgainPlugin">
+                    <param name="ios-package" value="AppgainPlugin" />
+                </feature>
+             </config-file>
+            <source-file src="src/ios/AppgainPlugin.m" />
+                <framework src="Appgain" type="podspec"  />
+
+         </platform>
+</plugin>
