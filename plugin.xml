@@ -32,7 +32,15 @@
                 </feature>
              </config-file>
             <source-file src="src/ios/AppgainPlugin.m" />
-                <framework src="Appgain" type="podspec"  />
+               <!-- <framework src="Appgain" type="podspec"  /> -->
+          <podspec>
+			<config>
+				<source url="https://github.com/CocoaPods/Specs.git" />
+			</config>
+			<pods>
+				<pod name="Appgain" />
+			</pods>
+		</podspec>
 
          </platform>
 </plugin>
